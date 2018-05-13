@@ -14,54 +14,55 @@
         <h4 class="card-title">Liste de tous les livreurs</h4>
       </div>
       <div class="card-body">
-        <table class="table  table-hover">
-          <thead class="text-orange">
-            <tr>
-              <th>#</th>
-              <th>Nom</th>
-              <th>Prénom</th>
-              <th>Véhicule</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-          {% for livreur in listLivreurs %}
-            <tr>
-              <td>
-                {{ livreur.id }}
-              </td>
-              <td>
-                <a href="{{ path('bb_livreur_view', {'id': livreur.id}) }}">
-                  {{ livreur.nom|upper }}
-                </a>
-              </td>
-              <td>
-                <a href="{{ path('bb_livreur_view', {'id': livreur.id}) }}">
-                  {{ livreur.prenom|capitalize }}
-                </a>
-              </td>
-              <td>
-                <a href="{{ path('bb_livreur_view', {'id': livreur.id}) }}">
-                  {{ livreur.vehicule|capitalize }}
-                </a>
-              </td>
-              <td class="text-right">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead class="text-orange">
+              <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Véhicule</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for livreur in listLivreurs %}
+              <tr>
+                <td>
+                  {{ livreur.id }}
+                </td>
+                <td>
+                  <a href="{{ path('bb_livreur_view', {'id': livreur.id}) }}">
+                    {{ livreur.nom|upper }}
+                  </a>
+                </td>
+                <td>
+                  <a href="{{ path('bb_livreur_view', {'id': livreur.id}) }}">
+                    {{ livreur.prenom|capitalize }}
+                  </a>
+                </td>
+                <td>
+                  <a href="{{ path('bb_livreur_view', {'id': livreur.id}) }}">
+                    {{ livreur.vehicule|capitalize }}
+                  </a>
+                </td>
+                <td class="text-right">
 
-                <a class="btn btn-info btn-sm" href="{{ path('bb_livreur_edit', {'id': livreur.id}) }}">
-                  <i class="fa fa-edit"></i>
-                </a>
+                  <a class="btn btn-info btn-sm" href="{{ path('bb_livreur_edit', {'id': livreur.id}) }}">
+                    <i class="fa fa-edit"></i>
+                  </a>
 
-                <a class="btn btn-danger btn-sm" href="{{ path('bb_livreur_delete', {'id': livreur.id}) }}">
-                  <i class="fa fa-times"></i>
-                </a>
-              </td>
-            </tr>
-          {% else %}
-            <tr><td colspan="4">Pas encore de livreurs. <a href="{{ path('bb_livreur_add') }}">En ajouter un ?</a></td></tr>
-          {% endfor %}
-          </tbody>
-        </table>
-
+                  <a class="btn btn-danger btn-sm" href="{{ path('bb_livreur_delete', {'id': livreur.id}) }}">
+                    <i class="fa fa-times"></i>
+                  </a>
+                </td>
+              </tr>
+            {% else %}
+              <tr><td colspan="4">Pas encore de livreurs. <a href="{{ path('bb_livreur_add') }}">En ajouter un ?</a></td></tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
         {% if nbPages > 1 %}
           <nav aria-label="Page navigation example">
           <ul class="pagination">
