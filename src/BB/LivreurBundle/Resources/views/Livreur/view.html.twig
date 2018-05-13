@@ -1,0 +1,41 @@
+{% extends "BBLivreurBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ livreur.nom }} - {{ parent() }}
+{% endblock %}
+
+{% block bblivreur_body %}
+
+
+
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-category">Livreur</h5>
+      </div>
+      <div class="card-body">
+
+        <h2>{{ livreur.nom|upper }} {{ livreur.prenom|capitalize }}</h2>
+        <i>utilise {{ livreur.vehicule }}</i>
+
+        <p class="mt-4">
+          <a href="{{ path('bb_livreur_home') }}" class="btn btn-outline-dark">
+            <i class="fa fa-arrow-left"></i>
+            Retour à la liste
+          </a>
+          <a href="{{ path('bb_livreur_edit', {'id': livreur.id}) }}" class="btn btn-info">
+            <i class="fa fa-edit"></i>
+            Modifier
+          </a>
+          <a href="{{ path('bb_livreur_delete', {'id': livreur.id}) }}" class="btn btn-danger">
+            <i class="fa fa-times"></i>
+            Supprimer
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,6 @@
+bb_core:
+    resource: "@BBCoreBundle/Resources/config/routing.yml"
+
+bb_livreur:
+    resource: "@BBLivreurBundle/Resources/config/routing.yml"
+    prefix:   /

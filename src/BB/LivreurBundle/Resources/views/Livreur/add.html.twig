@@ -1,0 +1,23 @@
+{% extends "BBLivreurBundle::layout.html.twig" %}
+
+
+
+{% block title %}
+  Ajouter un livreur - {{ parent() }}
+{% endblock %}
+
+
+{% block bblivreur_body %}
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-category">Ajouter un livreur</h5>
+      </div>
+      <div class="card-body">
+        {{ include("BBLivreurBundle:Livreur:form.html.twig") }}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "BBCoreBundle::layout.html.twig" %}
+
+{% block title %}
+  Livreur - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+  <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-wrapper">
+        <h1 class="navbar-brand">Dashboard <i class="fa fa-bicycle"></i></h1>
+      </div>
+    </div>
+  </nav>
+
+  <div class="panel-header panel-header-sm">
+  </div>
+
+  <div class="content">
+  {% block bblivreur_body %}
+  {% endblock %}
+  </div>
+{% endblock %}

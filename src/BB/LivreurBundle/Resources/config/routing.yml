@@ -1,0 +1,29 @@
+bb_livreur_home:
+    path:     /{page}
+    defaults:
+        _controller: BBLivreurBundle:Livreur:index
+        page: 1
+    requirements:
+        page: \d+
+
+bb_livreur_view:
+    path:     /livreur/{id}
+    defaults: { _controller: BBLivreurBundle:Livreur:view }
+    requirements:
+        id: \d+
+
+bb_livreur_add:
+    path:     /add
+    defaults: { _controller: BBLivreurBundle:Livreur:add }
+
+bb_livreur_edit:
+    path:     /edit/{id}
+    defaults: { _controller: BBLivreurBundle:Livreur:edit }
+    requirements:
+        id: \d+
+
+bb_livreur_delete:
+    path:     /delete/{id}
+    defaults: { _controller: BBLivreurBundle:Livreur:delete }
+    requirements:
+        id: \d+

@@ -1,0 +1,100 @@
+{% extends "BBLivreurBundle::layout.html.twig" %}
+
+{% block title %}
+  Accueil - {{ parent() }}
+{% endblock %}
+
+{% block bblivreur_body %}
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-category">Gestion des livreurs</h5>
+        <h4 class="card-title">Liste de tous les livreurs</h4>
+      </div>
+      <div class="card-body">
+        <table class="table  table-hover">
+          <thead class="text-orange">
+            <tr>
+              <th>#</th>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Véhicule</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for livreur in listLivreurs %}
+            <tr>
+              <td>
+                {{ livreur.id }}
+              </td>
+              <td>
+                <a href="{{ path('bb_livreur_view', {'id': livreur.id}) }}">
+                  {{ livreur.nom|upper }}
+                </a>
+              </td>
+              <td>
+                <a href="{{ path('bb_livreur_view', {'id': livreur.id}) }}">
+                  {{ livreur.prenom|capitalize }}
+                </a>
+              </td>
+              <td>
+                <a href="{{ path('bb_livreur_view', {'id': livreur.id}) }}">
+                  {{ livreur.vehicule }}
+                </a>
+              </td>
+              <td class="text-right">
+
+                <a class="btn btn-info btn-sm" href="{{ path('bb_livreur_edit', {'id': livreur.id}) }}">
+                  <i class="fa fa-edit"></i>
+                </a>
+
+                <a class="btn btn-danger btn-sm" href="{{ path('bb_livreur_delete', {'id': livreur.id}) }}">
+                  <i class="fa fa-times"></i>
+                </a>
+              </td>
+            </tr>
+          {% else %}
+            <tr><td colspan="4">Pas encore de livreurs. <a href="{{ path('bb_livreur_add') }}">En ajouter un ?</a></td></tr>
+          {% endfor %}
+          </tbody>
+        </table>
+
+        {% if nbPages > 1 %}
+          <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="{{ path('bb_livreur_home', {'page': 1}) }}" aria-label="Première">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Première</span>
+              </a>
+            </li>
+            {% for i in 1..nbPages %}
+                
+                {% if i == page %}
+                <li class="page-item active">
+                {% else %}
+                <li class="page-item">
+                {% endif %}
+                  <a class="page-link" href="{{ path('bb_livreur_home', {'page': i}) }}">
+                    {{ i }}
+                  </a>
+                </li>
+
+            {% endfor %}
+            <li class="page-item">
+              <a class="page-link" href="{{ path('bb_livreur_home', {'page': nbPages}) }}" aria-label="Dernière">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Dernière</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

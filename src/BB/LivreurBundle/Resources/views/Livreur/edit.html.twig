@@ -1,0 +1,29 @@
+{% extends "BBLivreurBundle::layout.html.twig" %}
+
+{% block title %}
+  Modifier un livreur - {{ parent() }}
+{% endblock %}
+
+{% block bblivreur_body %}
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-category">Modifier un livreur</h5>
+      </div>
+      <div class="card-body">
+
+        {{ include("BBLivreurBundle:Livreur:form.html.twig") }}
+
+        <p>
+          <a href="{{ path('bb_livreur_view', {'id': livreur.id}) }}" class="btn btn-outline-dark">
+            <i class="fa fa-arrow-left"></i>
+            Retour au livreur
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

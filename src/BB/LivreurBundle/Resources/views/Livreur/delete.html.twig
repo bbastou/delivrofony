@@ -1,0 +1,35 @@
+{% extends "BBLivreurBundle::layout.html.twig" %}
+
+{% block title %}
+  Supprimer un livreur - {{ parent() }}
+{% endblock %}
+
+{% block bblivreur_body %}
+
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-category">Supprimer un livreur</h5>
+      </div>
+      <div class="card-body">
+
+        <p>
+          Etes-vous certain de vouloir supprimer le livreur "{{ livreur.nom|upper }} {{ livreur.prenom|capitalize }}" ?
+        </p>
+
+        <form action="{{ path('bb_livreur_delete', {'id': livreur.id}) }}" method="post">
+          <a href="{{ path('bb_livreur_view', {'id': livreur.id}) }}" class="btn btn-outline-dark">
+            <i class="fa fa-arrow-left"></i>
+            Retour au livreur
+          </a>
+          <input type="submit" value="Supprimer" class="btn btn-danger" />
+          {# Ceci va générer le champ CSRF #}
+          {{ form_rest(form) }}
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

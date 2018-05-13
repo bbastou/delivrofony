@@ -1,0 +1,4 @@
+services:
+#    bb_livreur.example:
+#        class: BB\LivreurBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
