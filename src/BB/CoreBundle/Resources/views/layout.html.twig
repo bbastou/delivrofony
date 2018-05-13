@@ -32,6 +32,13 @@
               <i class="fa fa-plus-circle"></i><p>Ajouter</p>
             </a>
           </li>
+          {% if livreur is defined %}
+          <li class="active">
+            <a href="{{ path('bb_livreur_view', {'id': livreur.id}) }}" class="nav-link">
+              <i class="fa fa-bicycle"></i><p>{{ livreur.prenom|capitalize }} {{ livreur.nom|upper }}</p>
+            </a>
+          </li>
+          {% endif %}
         </ul>
       </div>
     </div>
